@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>All tasks</h1>
+    <% @tasks.each do |task| %>
+      <div class="card d-flex flex-row mb-2 p-3" style="width: 18rem;">
+        <div>
+          <%= link_to task.title, task_path(task), :class=> "card-link text-decoration-none card-title me-3" %>
+        </div>
+        <div class="icon">
+          <%= link_to task, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %><br>
+    <%= link_to 'Add a new task', new_task_path, :class => "btn btn-primary mt-2"%>
+</div>

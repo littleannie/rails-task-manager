@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card m-2" style="width: 18rem;">
+    <div class="card-body">
+      <h1 class="card-title"><%= @task.title %></h1>
+      <p class="card-title"><%= @task.details %></p>
+      <%= form_with model: @task do |f| %>
+        <div class="checkbox my-2">
+          <%= f.check_box :completed, :class => "form-check-input" %>
+          <%= f.label :completed, "Completed" %>
+        </div>
+      <% end %>
+      <%= link_to 'Edit task', edit_task_path(@task), :class => "btn btn-primary p-2" %>
+      <%= link_to 'View all tasks', tasks_path, :class => "btn btn-outline-secondary p-2" %>
+    </div>
+  </div>
+</div>
